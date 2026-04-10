@@ -270,7 +270,7 @@ export default function App() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
           {/* Left Column: Stats */}
           <div className="grid grid-cols-2 gap-2 lg:col-span-1 content-start">
-            <StatCard title="升学率" value={`${state.admissionRate}%`} icon={<TrendingUp className="w-4 h-4" />} color="text-blue-400" bgColor="bg-blue-400" progress={state.admissionRate} />
+            <StatCard title="升学率" value={`${state.admissionRate}%`} icon={<TrendingUp className="w-4 h-4" />} color="text-blue-400" bgColor="bg-blue-400" progress={Math.max(25, state.admissionRate)} />
             <StatCard title="学生压力" value={`${state.pressure}%`} icon={<Activity className="w-4 h-4" />} color="text-rose-500" bgColor="bg-rose-500" progress={state.pressure} />
             <StatCard title="铁丝网强度" value={`${'★'.repeat(state.wireMesh)}${''.repeat(5 - state.wireMesh)}`} icon={<Shield className="w-4 h-4" />} color="text-amber-400" />
             <StatCard title="小金库" value={`${state.money.toFixed(1)} 万`} icon={<DollarSign className="w-4 h-4" />} color="text-emerald-400" />
@@ -376,7 +376,7 @@ function StatCard({ title, value, icon, color, bgColor, progress }: { title: str
     <div className="bg-slate-900 border border-slate-700 rounded-lg p-3 shadow-sm flex flex-col justify-center">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className={`${color} bg-slate-800 p-1 rounded-md`}>{icon}</div>
+          <div className={`${color} p-1`}>{icon}</div>
           <div className="text-slate-400 text-xs font-medium">{title}</div>
         </div>
         <div className={`text-sm font-bold font-mono ${color}`}>{value}</div>
