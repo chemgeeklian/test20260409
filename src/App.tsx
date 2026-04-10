@@ -122,7 +122,7 @@ export default function App() {
 
     // 5. Win/Loss Check
     if (gameOverState === 'playing') {
-      if (admissionRate < 30) {
+      if (admissionRate < 25) {
         gameOverState = 'gameover1';
       } else if (turn >= 12) {
         if (admissionRate < 80) {
